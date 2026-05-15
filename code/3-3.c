@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int cmp_str(const void *a, const void *b){
+    return strcmp(*(const char **)a, *(const char **)b);
+}
+
+int main() {
+   const char *words[] = {"banana", "apple", "ant", "orange"};
+   int size = 4;
+
+   qsort(words, size, sizeof(const char*), cmp_str);
+
+   for(int i = 0; i < size; i++){
+        printf("%s\n", words[i]);
+   }
+   return 0;
+   
+}
